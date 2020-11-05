@@ -4,7 +4,11 @@ using System.Text;
 
 namespace BigMammaUML3
 {
-    class MenuItemNumberExist : Exception
+    public class MenuItemNumberExist : Exception
     {
+        public MenuItemNumberExist(string message): base(message)
+        {
+            
+        }
     }
 }
