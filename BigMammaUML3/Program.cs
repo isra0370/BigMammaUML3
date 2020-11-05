@@ -15,21 +15,28 @@ namespace BigMammaUML3
             //catalog.PrintCustomerList();
 
             IMenuCatalog mc = new MenuCatalog();
-          
-            //Pizza
-            mc.Add(new Pizza(true, 1, "Margheritta", "med tomat og ost", 55, MenuType.Pizza, false, false ));
-            mc.Add(new Pizza(true, 2, "Italiana", "cheese, onion", 45, MenuType.Pizza, true, true));
-            
-            // Beverage
-            mc.Add(new Beverage(false, 3, "Cola", "Mellem", 20, MenuType.SoftDrink, false, false));
-            mc.Add(new Beverage(true, 4, "Drink", "stor", 60, MenuType.AlcoholicDrink, false, false));
 
-            // Salat
-            mc.Add(new Salat(true, false, 5, "Caesar salat", "Stor", 45, MenuType.Salat, true, true));
-            mc.Add(new Salat(false, true, 6, "TunPasta", "pasta med tun", 55, MenuType.Salat, false, false));
+            try
+            {
 
+                //Pizza
+                mc.Add(new Pizza(true, 1, "Margheritta", "med tomat og ost", 55, MenuType.Pizza, false, false));
+                mc.Add(new Pizza(true, 2, "Italiana", "cheese, onion", 45, MenuType.Pizza, true, true));
+                mc.Add(new Pizza(true, 2, "Italiana danish", "cheese, onion", 45, MenuType.Pizza, true, true));
 
-            mc.Delete(1);
+                // Beverage
+                mc.Add(new Beverage(false, 3, "Cola", "Mellem", 20, MenuType.SoftDrink, false, false));
+                mc.Add(new Beverage(true, 4, "Drink", "stor", 60, MenuType.AlcoholicDrink, false, false));
+
+                // Salat
+                mc.Add(new Salat(true, false, 5, "Caesar salat", "Stor", 45, MenuType.Salat, true, true));
+                mc.Add(new Salat(false, true, 6, "TunPasta", "pasta med tun", 55, MenuType.Salat, false, false));
+            }
+            catch (MenuItemNumberExist miex)
+            {
+                Console.WriteLine($"MenuItem eksisterer allerede {miex.Message} ");
+            }
+
 
 
             Console.WriteLine(mc);

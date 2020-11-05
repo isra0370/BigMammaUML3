@@ -26,6 +26,10 @@ namespace BigMammaUML3
                 int key = aMenuItem.Number;
                 _menuItems.Add(key, aMenuItem);
             }
+            else
+            {
+                throw new MenuItemNumberExist("MenuItem eksisterer allerede");
+            }
         }
 
         public IMenuItem Search(int number)
